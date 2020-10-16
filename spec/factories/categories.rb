@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    condition { "MyString" }
+    condition { 'MyString' }
   end
 end
