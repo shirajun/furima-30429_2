@@ -8,11 +8,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :image, :name, :text
-    validates :price, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}
+    validates :image, :name, :text, :price 
+    # validates :price, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}
   end
-  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 10000000, message: "Out of setting range"}
-  
+  validates :price, numericality: { greater_than: 299, less_than: 10000000, message: "Out of setting range"}
+  validates :price, numericality: { only_integer: true, message: "half-width characters."}
   with_options numericality: { other_than: 1, message: "Select" } do
     validates :category_id, :condition_id, :shipping_format_id, :prefecture_id, :day_id
   end
