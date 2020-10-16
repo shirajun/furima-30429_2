@@ -64,7 +64,6 @@ RSpec.describe Item, type: :model do
         it 'priceが空では保存できないこと' do
           @item.price = nil
           @item.valid?
-          # binding.pry
           expect(@item.errors.full_messages).to include("Price can't be blank")
         end
 
