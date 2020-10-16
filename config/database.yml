@@ -19,7 +19,7 @@ default: &default
 
 development:
   <<: *default
-  database: furima_30429_2_development
+  database: furima-30429-2-development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: furima-30429-2_production
+  database: furima-30429-2-production
   username: furima-30429-2
-  password: <%= ENV['FURIMA-30429-2_DATABASE_PASSWORD'] %>
+  password: <%= ENV['FURIMA-30429-2-DATABASE_PASSWORD'] %>
