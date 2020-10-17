@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: 
   socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: furima-30429-2-development
+  database: furima_30429_2_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: furima-30429-2-production
-  username: furima-30429-2
-  password: <%= ENV['FURIMA-30429-2-DATABASE_PASSWORD'] %>
+  database: furima_30429_2_production
+  username: furima_30429_2
+  password: <%= ENV['FURIMA_30429_2_DATABASE_PASSWORD'] %>
