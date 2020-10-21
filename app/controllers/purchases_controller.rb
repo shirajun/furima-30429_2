@@ -1,14 +1,13 @@
 class PurchasesController < ApplicationController
+  before_action :set_purchase
+
   def index
     @purchase_order = PurchaseOrder.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    # binding.pry
     @purchase_order = PurchaseOrder.new(purchase_params)
     if @purchase_order.valid?
-      @item = Item.find(params[:item_id])
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: @item.price,
@@ -18,7 +17,6 @@ class PurchasesController < ApplicationController
       @purchase_order.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -38,5 +36,9 @@ class PurchasesController < ApplicationController
       item_id: params[:item_id],
       token: params[:token]
     )
+  end
+
+  def set_purchase
+    @item = Item.find(params[:item_id])
   end
 end

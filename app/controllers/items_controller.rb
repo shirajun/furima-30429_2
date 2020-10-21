@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order('created_at DESC')
-    
-    # binding.pry
   end
 
   def new
@@ -23,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @purchase = Purchase.new
+    
   end
 
   def edit

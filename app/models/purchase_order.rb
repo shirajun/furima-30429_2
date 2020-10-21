@@ -1,6 +1,6 @@
 class PurchaseOrder
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :municipality, :address, :building_name, :phone_number, :prefecture_id, :purchase_id, :token
+  attr_accessor :user_id, :item_id, :postal_code, :municipality, :address, :building_name, :phone_number, :prefecture_id, :token
 
   with_options presence: true do
     validates :postal_code, :municipality, :address, :phone_number
