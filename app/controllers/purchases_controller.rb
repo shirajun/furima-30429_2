@@ -2,10 +2,11 @@ class PurchasesController < ApplicationController
   before_action :set_purchase
 
   def index
-    if @item.purchase != nil || @item.user_id = @item.id
+    if @item.purchase != nil || current_user.id == @item.user_id
       redirect_to root_path
+    else
+      @purchase_order = PurchaseOrder.new
     end
-    @purchase_order = PurchaseOrder.new
   end
 
   def create
