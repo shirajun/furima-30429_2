@@ -2,6 +2,9 @@ class PurchasesController < ApplicationController
   before_action :set_purchase
 
   def index
+    if @item.purchase != nil || @item.user_id = @item.id
+      redirect_to root_path
+    end
     @purchase_order = PurchaseOrder.new
   end
 
@@ -16,7 +19,7 @@ class PurchasesController < ApplicationController
       )
       @purchase_order.save
       redirect_to root_path
-    else
+    else @purchase_order = PurchaseOrder.new
       render :index
     end
   end

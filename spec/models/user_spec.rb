@@ -117,6 +117,7 @@ RSpec.describe User, type: :model do
         it 'first_nameが全角入力でなければ登録できないこと' do
           @user.first_name = 'ｱｱｱ'
           @user.valid?
+          # binding.pry
           expect(@user.errors.full_messages).to include('First name Full-width characters')
         end
 
@@ -132,17 +133,19 @@ RSpec.describe User, type: :model do
           expect(@user.errors.full_messages).to include('First name Full-width characters')
         end
 
-        it 'family_name_kanaが全角カタカナでなければ登録できないこと' do
+        it 'family_name_kana first_name_kanaが全角カタカナでなければ登録できないこと' do
           @user.family_name_kana = 'ｱｱｱ'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('Family name kana Full-width characters')
-        end
-
-        it 'first_name_kanaが全角カタカナでなければ登録できないこと' do
           @user.first_name_kana = 'ｱｱｱ'
           @user.valid?
-          expect(@user.errors.full_messages).to include('First name kana Full-width characters')
+          # binding.pry
+          expect(@user.errors.full_messages).to include("Family name kana Full-width characters", "First name kana Full-width characters")
         end
+
+        # it 'first_name_kanaが全角カタカナでなければ登録できないこと' do
+        #   @user.first_name_kana = 'ｱｱｱ'
+        #   @user.valid?
+        #   expect(@user.errors.full_messages).to include('First name kana Full-width characters')
+        # end
       end
     end
   end
