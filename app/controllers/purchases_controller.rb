@@ -20,9 +20,10 @@ class PurchasesController < ApplicationController
       )
       @purchase_order.save
       redirect_to root_path
-    else @purchase_order = PurchaseOrder.new
+    else 
       render :index
     end
+    
   end
 
   private

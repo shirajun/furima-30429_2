@@ -3,7 +3,7 @@ class PurchaseOrder
   attr_accessor :user_id, :item_id, :postal_code, :municipality, :address, :building_name, :phone_number, :prefecture_id, :token
 
   with_options presence: true do
-    validates :postal_code, :municipality, :address, :phone_number
+    validates :postal_code, :municipality, :address, :phone_number, :token
   end
   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'code Input correctly' }
   validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'Input only number' }
