@@ -125,7 +125,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <% @items.each do |item| %>
+      <% @items.reverse_each do |item| %>
       <li class='list'>
         <%= link_to item_path(item) do %>
         <div class='item-img-content'>
